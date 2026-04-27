@@ -1,6 +1,6 @@
 package com.estudo.anime.entity;
 
-import com.estudo.anime.dto.AnimeRequestDTO;
+import com.estudo.anime.dto.request.AnimeRequestDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

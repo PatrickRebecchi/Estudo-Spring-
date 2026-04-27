@@ -1,8 +1,7 @@
 package com.estudo.anime.controller;
 
-import com.estudo.anime.dto.AnimeRequestDTO;
-import com.estudo.anime.dto.AnimeResponseDTO;
-import com.estudo.anime.entity.Anime;
+import com.estudo.anime.dto.request.AnimeRequestDTO;
+import com.estudo.anime.dto.response.AnimeResponseDTO;
 import com.estudo.anime.service.AnimeService;
 import com.estudo.anime.util.DateUtil;
 import lombok.extern.log4j.Log4j2;

@@ -1,4 +1,4 @@
-package com.estudo.anime.dto;
+package com.estudo.anime.dto.response;
 
 public record AnimeResponseDTO(
         Long id,
