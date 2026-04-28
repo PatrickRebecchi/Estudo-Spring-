@@ -3,6 +3,7 @@ package com.estudo.anime.service;
 import com.estudo.anime.dto.request.AnimeRequestDTO;
 import com.estudo.anime.dto.response.AnimeResponseDTO;
 import com.estudo.anime.entity.Anime;
+import com.estudo.anime.exception.AnimeException;
 import com.estudo.anime.repository.AnimeRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class AnimeService {
     @Transactional
     public AnimeRequestDTO atualizarDados(Long id, AnimeRequestDTO dto) {
         Anime anime = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Anime não encontrado"));
+                .orElseThrow(() -> new AnimeException("Anime não encontrado"));
 
         anime.setNome(dto.nome());
 
