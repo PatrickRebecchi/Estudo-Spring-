@@ -35,4 +35,10 @@ public class UsuarioController {
                 .body(service.cadastrar(dto));
     }
 
+    @PutMapping("/{id}")
+    public UsuarioRequestDTO alterarDados(@PathVariable Long id, @RequestBody UsuarioRequestDTO dto) {
+        log.info(dateUtil.formatLocalDateTimeToDatabase(LocalDateTime.now()));
+        return service.AlterarDados(id, dto);
+    }
+
 }
