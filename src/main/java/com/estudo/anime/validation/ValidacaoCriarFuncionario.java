@@ -1,4 +1,4 @@
-package com.estudo.anime.validacao;
+package com.estudo.anime.validation;
 
 import com.estudo.anime.dto.request.FuncionarioRequestDTO;
 
