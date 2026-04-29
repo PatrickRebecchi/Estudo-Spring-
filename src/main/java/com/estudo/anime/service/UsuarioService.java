@@ -1,14 +1,11 @@
 package com.estudo.anime.service;
 
 import com.estudo.anime.dto.request.UsuarioRequestDTO;
-import com.estudo.anime.dto.response.AnimeResponseDTO;
 import com.estudo.anime.entity.Usuario;
-import com.estudo.anime.exception.AnimeException;
+import com.estudo.anime.exception.EstudosException;
 import com.estudo.anime.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
-import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,7 +32,7 @@ public class UsuarioService {
     @Transactional
     public UsuarioRequestDTO cadastrar(UsuarioRequestDTO dto) {
         if (repository.existsByEmail(dto.email())) { // vejo se existe o Email repetido no banco
-            throw new AnimeException("Email já cadastrado!");  // se existi ele retornar o erro falando que já existe
+            throw new EstudosException("Email já cadastrado!");  // se existi ele retornar o erro falando que já existe
         }
         Usuario u = new Usuario(dto);  // puxo os dados da requisição
 
@@ -45,7 +42,7 @@ public class UsuarioService {
 
     public UsuarioRequestDTO AlterarDados(Long id, UsuarioRequestDTO dto) {
         Usuario u = repository.findById(id) // vejo se existe o ID que puxei no banco de dados
-                .orElseThrow(() -> new AnimeException("Usuario não encontrado")); // se não achar o id no banco, retornar esse erro e para o codigo
+                .orElseThrow(() -> new EstudosException("Usuario não encontrado")); // se não achar o id no banco, retornar esse erro e para o codigo
 
         u.setNome(dto.nome()); //aqui eu puxo o dado que a requisicao envia
         u.setEmail(dto.email()); //aqui eu puxo o dado que a requisicao envia
