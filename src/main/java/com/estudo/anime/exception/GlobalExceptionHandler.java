@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(AnimeException.class)
-    public ResponseEntity<ResponseError> AnimeException(AnimeException ex){
+    @ExceptionHandler(EstudosException.class)
+    public ResponseEntity<ResponseError> EstudosException(EstudosException ex){
         ResponseError responde = new ResponseError(
                 ex.getMessage(),
                 HttpStatus.BAD_REQUEST,
